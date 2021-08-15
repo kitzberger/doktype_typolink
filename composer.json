@@ -1,0 +1,20 @@
+{
+  "name": "kitzberger/doktype-typolink",
+  "type": "typo3-cms-extension",
+  "description": "Enhance doktype 3 (\"Link to External URL\") to support typolinks",
+  "homepage": "https://github.com/kitzberger/doktype_typolink",
+  "license": [
+    "GPL-2.0-or-later"
+  ],
+  "keywords": [
+    "TYPO3 CMS"
+  ],
+  "require": {
+    "typo3/cms-core": "^8.7 || ^9.5 || ^10.4"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "doktype_typolink"
+    }
+  }
+}
