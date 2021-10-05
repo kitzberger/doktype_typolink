@@ -1,0 +1,2 @@
+# cat=basic; type=boolean; label=Enable middleware?: Enables the (experimental) middleware that resolves typolinks for pages with 'url' property during the request process
+enableMiddleware = 0
