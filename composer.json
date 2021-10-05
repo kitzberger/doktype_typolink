@@ -16,5 +16,10 @@
     "typo3/cms": {
       "extension-key": "doktype_typolink"
     }
+  },
+  "autoload": {
+    "psr-4": {
+      "Kitzberger\\DoktypeTypolink\\": "Classes"
+    }
   }
 }
