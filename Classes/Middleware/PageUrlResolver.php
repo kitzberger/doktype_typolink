@@ -29,7 +29,10 @@ class PageUrlResolver implements MiddlewareInterface
 
                     // Initialize configuration
                     // (stolen from PrepareTypoScriptFrontendRendering)
-                    $GLOBALS['TSFE']->getConfigArray($request);
+                    $controller = $request->getAttribute('frontend.controller');
+                    $GLOBALS['TYPO3_REQUEST'] = $request;
+                    $request = $controller->getFromCache($request);
+                    $GLOBALS['TYPO3_REQUEST'] = $request;
 
                     // Get instance of ContentObjectRenderer
                     $cObj = GeneralUtility::makeInstance(
