@@ -1,19 +1,25 @@
 <?php
 
+use Kitzberger\DoktypeTypolink\Middleware\PageUrlResolver;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 if ($GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['doktype_typolink']['enableMiddleware'] ?? false) {
+    $before = ['typo3/cms-frontend/shortcut-and-mountpoint-redirect'];
+    if (ExtensionManagementUtility::isLoaded('headless')) {
+        $before[] = 'headless/cms-frontend/shortcut-and-mountpoint-redirect';
+    }
+
     return [
         'frontend' => [
-            'kitzberger/cms-redirects/page-url-resolved' => [
-                'target' => \Kitzberger\DoktypeTypolink\Middleware\PageUrlResolver::class,
+            'kitzberger/doktype-typolink/page-url-resolved' => [
+                'target' => PageUrlResolver::class,
                 'after' => [
-                    'typo3/cms-frontend/tsfe',
-                ],
-                'before' => [
                     'typo3/cms-frontend/prepare-tsfe-rendering',
                 ],
+                'before' => $before,
             ],
         ],
     ];
-} else {
-    return [];
 }
+
+return [];
