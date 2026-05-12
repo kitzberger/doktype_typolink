@@ -6,8 +6,7 @@
         'columns' => [
             'url' => [
                 'config' => [
-                    'type' => 'input',
-                    'renderType' => 'inputLink',
+                    'type' => 'link',
                     'size' => 50,
                     'max' => 1024,
                     'eval' => 'trim',
